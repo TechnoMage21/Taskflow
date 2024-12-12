@@ -1,117 +1,254 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playwrite+BE+VLG:wght@100..400&display=swap');
-.text-heading{
-  font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
+
+/* Heading Style */
+.text-heading {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  color: #573364;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+/* Base Styles for Body and HTML */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Playwrite BE VLG', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f9c8d4, #b0a1f2);
+  color: #333;
+  animation: fadeIn 1s ease-out;
+}
+
+.App {
+  text-align: center;
+}
+
+/* Main Container for Todo App */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.5s ease-out;
+}
+
+.todobox {
+  background: linear-gradient(45deg, #8e44ad, #3498db);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Styling for Cards */
+.main-card {
+  margin: 20px 0;
+}
+
+.style-card {
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.15);
+  color: #fff;
+  padding: 12px;
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  opacity: 0;
+  animation: fadeInCard 0.7s ease-out forwards;
+}
+
+.style-card:hover {
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.style-card h6 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ecf0f1;
+}
+
+.style-card p {
+  font-size: 14px;
+  color: #bdc3c7;
+  margin: 5px 0;
+}
+
+/* Action Buttons Styling */
+.action-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.action-button:hover {
+  transform: scale(1.1);
+}
+
+.button-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* Input Fields and Add Button */
+input[type="text"],
+input[type="date"] {
+  margin: 12px;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 8px;
+  height: 40px;
+  font-weight: 500;
+  padding: 0 12px;
+  width: 45%;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+  outline: none;
+  border: 2px solid #8e44ad;
+}
+
+.add-button {
+  border: none;
+  height: 50px;
+  border-radius: 50%;
+  background: #3498db;
+  color: white;
+  width: 80px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.1);
+}
+
+.todo-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .style-card h6 {
+    font-size: 16px;
+  }
+
+  input[type="text"],
+  input[type="date"] {
+    width: 80%;
+  }
+
+  .add-button {
+    width: 60px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .todo-input {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input[type="text"],
+  input[type="date"] {
+    width: 85%;
+    margin: 8px 0;
+  }
+
+  .add-button {
+    width: 55px;
+    height: 45px;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main layout styling */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centers everything horizontally */
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centers header content */
+  justify-content: center;
+  margin-bottom: 20px;  /* Adds space between header and main content */
+}
+
+.app-logo {
+  width: 120px;  /* Adjust logo size */
+  height: auto;
+  margin-bottom: 20px;  /* Adds space between logo and heading */
+  animation: spin 3s ease-in-out infinite; /* Example animation for the logo */
+}
+
+.text-heading {
+  font-family: 'Caveat', cursive;
   font-weight: 700;
   color: rgb(73, 17, 17);
   text-shadow: 5px 2px 10px #282C54;
 }
 
-body, html {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(45deg, #e0e7a7, white);
+/* Styling for the logo */
+.app-logo {
+  width: 120px;  /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 20px; /* Adds space between the logo and the heading */
+  animation: spin 3s ease-in-out infinite; /* Optional animation */
 }
 
 
-.App {
-  text-align: center;
-
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.main-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-.todobox {
-  background: linear-gradient(60deg, purple, #7f3fdb);
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 20px 20px 20px grey;
-}
-.main-card {
-  margin: 20px;
-}
-.style-card {
-  border-radius: 20px;
-  background: #00000033;
-  color: navajowhite;
-  padding: 4px 3px 8px 14px;
-  text-align: start;
-  font-family: cursive;
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-evenly;
-
-}
-.action-button{
-  background: transparent;
-  height: 3vh;
-  border: none;
-}
-.button-image{
-  width: 100%;
-  height: 100%;
-}
-input[type="text"],
-input[type="date"] {
-  margin: 10px;
-  border: none;
-  background: #d3c5af;
-  border-radius: 20px;
-  height: 8vh;
-  font-weight: bold;
-  padding: 9px;
-  width: 38%;
-}
-.add-button {
-  border: none;
-  height: 8vh;
-  border-radius: 50%;
-  background: black;
-  color: white;
-  width: 11%;
-}
-.todo-input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@media (max-width:258px) {
-  .style-card h6{
-    font-size: 10px !important;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
